@@ -1,0 +1,2 @@
+serviceClass: goldengoblet.client.GreetingService
+path: 62A5FAEB6BAA9D6331FBA54042F6BD53.gwt.rpc

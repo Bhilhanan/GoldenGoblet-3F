@@ -1,0 +1,2 @@
+# Module goldengoblet_3f_
+# RPC service class, partial path of RPC policy file
