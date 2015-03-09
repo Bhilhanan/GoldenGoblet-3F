@@ -4,38 +4,16 @@
 <!-- "Standards Mode". Replacing this declaration   -->
 <!-- with a "Quirks Mode" doctype is not supported. -->
 
-<html>
+<html ng-app="app">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
-    <!--                                                               -->
-    <!-- Consider inlining CSS to reduce the number of requested files -->
-    <!--                                                               -->
     <link type="text/css" rel="stylesheet" href="GoldenGoblet_3F_.css">
+    <title>Golden Goblet</title>
 
-    <!--                                           -->
-    <!-- Any title is fine                         -->
-    <!--                                           -->
-    <title>Web Application Starter Project</title>
-    
-    <!--                                           -->
-    <!-- This script loads your compiled module.   -->
-    <!-- If you add any GWT meta tags, they must   -->
-    <!-- be added before this line.                -->
-    <!--                                           -->
-    <script type="text/javascript" language="javascript" src="goldengoblet_3f_/goldengoblet_3f_.nocache.js"></script>
-  </head>
+<link rel="stylesheet" href="CSS/css/bootstrap.css">
+</head>
+ <body ng-controller="mainController">
 
-  <!--                                           -->
-  <!-- The body can have arbitrary html, or      -->
-  <!-- you can leave the body empty if you want  -->
-  <!-- to create a completely dynamic UI.        -->
-  <!--                                           -->
-  <body>
-
-    <!-- OPTIONAL: include this if you want history support -->
-    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
-    
     <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
     <noscript>
       <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
@@ -44,19 +22,33 @@
       </div>
     </noscript>
 
-    <h1>Web Application Starter Project</h1>
+<header>
+	<nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/">3F</a>
+                </div>
 
-    <table align="center">
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Please enter your name:</td>        
-      </tr>
-      <tr>
-        <td id="nameFieldContainer"></td>
-        <td id="sendButtonContainer"></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
-      </tr>
-    </table>
-  </body>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/home">Home</a></li>
+                    <li><a href="#/add">Add</a></li>
+                </ul>
+            </div>
+            </nav>
+</header>
+<div class="container">
+	<div ng-view></div>
+</div>
+
+    <script src="Scripts/angular.js"></script>
+<script src="Scripts/angular-route.js"></script>
+
+<!-- controller javascript files -->
+<script src="app.js"></script>
+<script src="App/Controllers/resourceController.js"></script>
+<script src="App/Controllers/homeController.js"></script>
+<script src="App/Controllers/addController.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=initialize"></script>
+
+     </body>
 </html>
