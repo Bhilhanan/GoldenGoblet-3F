@@ -21,10 +21,14 @@ app.controller('homeController',["$scope","cloudendpoint","$window","gapiService
 	
 	
 	var getSubjectList=function(){
-		gapiService.getSubjectList($scope);
-		$scope.subjects=[{"id":1,"subject":"a"}];
-		console.log($scope.subjects);
-	}
+		$scope.subj=gapiService.getSubjectList().then(function(items){
+			$scope.subj=items;
+			console.log($scope.subj);
+		});
+		
+	};
+	
+	
 	
 	
 	
