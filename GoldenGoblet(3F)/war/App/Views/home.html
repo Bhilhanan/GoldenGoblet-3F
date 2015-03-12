@@ -1,9 +1,84 @@
 <div ng-controller="homeController">
-<div>
-<ul>
-<li ng-repeat="s in subj">
-{{s.subject}}
-</li>
-</ul>
+<div class="container">
+<div class="row">
+	
+	<div class="col-md-4">
+		<div class="panel panel-info">
+			<div class="panel-footer">
+				<div class="">
+					<input type="text" class="form-control pull-left" ng-model="searchSubject" placeholder="Search Subjects ....">
+					<button class="btn btn-primary pull-right">+ Subject</button>
+				</div>
+			</div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<th>Subject</th><th>Number of methods</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="s in subj|filter:searchSubject">
+							<td>{{s.subject}}</td><td>{{s.id}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+			
+	</div>
+		
+	<div class="col-md-4">
+		<div class="panel panel-info">
+			<div class="panel-footer">
+				<div class="">
+					<input type="text" class="form-control pull-left" ng-model="searchVerb" placeholder="Search Verbs ....">
+					<button class="btn btn-primary pull-right">+ Verb</button>
+				</div>
+			</div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<th>Verb</th><th>Number of methods</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="s in subj|filter:searchVerb">
+							<td>{{s.subject}}</td><td>{{s.id}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-info">
+			<div class="panel-footer">
+				<div class="">
+					<input type="text" class="form-control pull-left" ng-model="searchObject" placeholder="Search Objects ....">
+					<button class="btn btn-primary pull-right">+ Object</button>
+				</div>
+			</div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<th>Object</th><th>Number of methods</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="s in subj|filter:searchObject">
+							<td>{{s.subject}}</td><td>{{s.id}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Method name</h3>
+	</div>
+	<div class="panel-body">
+		Method body
+	</div>
+	
+</div>
 </div>
 </div>

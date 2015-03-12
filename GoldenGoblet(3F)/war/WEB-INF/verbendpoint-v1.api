@@ -27,17 +27,26 @@
   "ownerName" : "mycompany.com",
   "packagePath" : "services",
   "methods" : {
-    "verbendpoint.updateVerb" : {
+    "verbendpoint.listVerb" : {
       "path" : "verb",
-      "httpMethod" : "PUT",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "goldengoblet.VerbEndpoint.updateVerb",
+      "rosyMethod" : "goldengoblet.VerbEndpoint.listVerb",
       "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -64,6 +73,38 @@
         "body" : "autoTemplate(backendResponse)"
       }
     },
+    "verbendpoint.insertVerb" : {
+      "path" : "verb",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "goldengoblet.VerbEndpoint.insertVerb",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "verbendpoint.updateVerb" : {
+      "path" : "verb",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "goldengoblet.VerbEndpoint.updateVerb",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "verbendpoint.removeVerb" : {
       "path" : "verb/{id}",
       "httpMethod" : "DELETE",
@@ -84,64 +125,10 @@
       "response" : {
         "body" : "empty"
       }
-    },
-    "verbendpoint.insertVerb" : {
-      "path" : "verb",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "goldengoblet.VerbEndpoint.insertVerb",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
-    "verbendpoint.listVerb" : {
-      "path" : "verb",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "goldengoblet.VerbEndpoint.listVerb",
-      "request" : {
-        "parameters" : {
-          "cursor" : {
-            "type" : "string",
-            "required" : false
-          },
-          "limit" : {
-            "type" : "int32",
-            "required" : false
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
     }
   },
   "descriptor" : {
     "schemas" : {
-      "Verb" : {
-        "id" : "Verb",
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string",
-            "format" : "int64"
-          },
-          "verb" : {
-            "type" : "string"
-          }
-        }
-      },
       "CollectionResponse_Verb" : {
         "id" : "CollectionResponse_Verb",
         "type" : "object",
@@ -156,23 +143,31 @@
             "type" : "string"
           }
         }
+      },
+      "Verb" : {
+        "id" : "Verb",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "verb" : {
+            "type" : "string"
+          }
+        }
       }
     },
     "methods" : {
-      "goldengoblet.VerbEndpoint.updateVerb" : {
-        "request" : {
-          "$ref" : "Verb"
-        },
+      "goldengoblet.VerbEndpoint.listVerb" : {
         "response" : {
-          "$ref" : "Verb"
+          "$ref" : "CollectionResponse_Verb"
         }
       },
       "goldengoblet.VerbEndpoint.getVerb" : {
         "response" : {
           "$ref" : "Verb"
         }
-      },
-      "goldengoblet.VerbEndpoint.removeVerb" : {
       },
       "goldengoblet.VerbEndpoint.insertVerb" : {
         "request" : {
@@ -182,10 +177,15 @@
           "$ref" : "Verb"
         }
       },
-      "goldengoblet.VerbEndpoint.listVerb" : {
+      "goldengoblet.VerbEndpoint.updateVerb" : {
+        "request" : {
+          "$ref" : "Verb"
+        },
         "response" : {
-          "$ref" : "CollectionResponse_Verb"
+          "$ref" : "Verb"
         }
+      },
+      "goldengoblet.VerbEndpoint.removeVerb" : {
       }
     }
   }

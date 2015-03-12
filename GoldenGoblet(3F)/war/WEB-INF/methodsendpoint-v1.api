@@ -69,22 +69,6 @@
         "body" : "empty"
       }
     },
-    "methodsendpoint.updateMethods" : {
-      "path" : "methods",
-      "httpMethod" : "PUT",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "goldengoblet.MethodsEndpoint.updateMethods",
-      "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "methodsendpoint.listMethods" : {
       "path" : "methods",
       "httpMethod" : "GET",
@@ -118,6 +102,22 @@
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "goldengoblet.MethodsEndpoint.insertMethods",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "methodsendpoint.updateMethods" : {
+      "path" : "methods",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "goldengoblet.MethodsEndpoint.updateMethods",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -187,7 +187,12 @@
       },
       "goldengoblet.MethodsEndpoint.removeMethods" : {
       },
-      "goldengoblet.MethodsEndpoint.updateMethods" : {
+      "goldengoblet.MethodsEndpoint.listMethods" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Methods"
+        }
+      },
+      "goldengoblet.MethodsEndpoint.insertMethods" : {
         "request" : {
           "$ref" : "Methods"
         },
@@ -195,12 +200,7 @@
           "$ref" : "Methods"
         }
       },
-      "goldengoblet.MethodsEndpoint.listMethods" : {
-        "response" : {
-          "$ref" : "CollectionResponse_Methods"
-        }
-      },
-      "goldengoblet.MethodsEndpoint.insertMethods" : {
+      "goldengoblet.MethodsEndpoint.updateMethods" : {
         "request" : {
           "$ref" : "Methods"
         },

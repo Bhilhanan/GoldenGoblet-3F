@@ -27,27 +27,6 @@
   "ownerName" : "mycompany.com",
   "packagePath" : "services",
   "methods" : {
-    "objectsendpoint.getObjects" : {
-      "path" : "objects/{id}",
-      "httpMethod" : "GET",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "goldengoblet.ObjectsEndpoint.getObjects",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
-    },
     "objectsendpoint.removeObjects" : {
       "path" : "objects/{id}",
       "httpMethod" : "DELETE",
@@ -69,17 +48,22 @@
         "body" : "empty"
       }
     },
-    "objectsendpoint.updateObjects" : {
-      "path" : "objects",
-      "httpMethod" : "PUT",
+    "objectsendpoint.getObjects" : {
+      "path" : "objects/{id}",
+      "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "goldengoblet.ObjectsEndpoint.updateObjects",
+      "rosyMethod" : "goldengoblet.ObjectsEndpoint.getObjects",
       "request" : {
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
@@ -93,6 +77,22 @@
       "audiences" : [ ],
       "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
       "rosyMethod" : "goldengoblet.ObjectsEndpoint.insertObjects",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "objectsendpoint.updateObjects" : {
+      "path" : "objects",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "goldengoblet.ObjectsEndpoint.updateObjects",
       "request" : {
         "body" : "autoTemplate(backendRequest)",
         "bodyName" : "resource"
@@ -159,14 +159,14 @@
       }
     },
     "methods" : {
+      "goldengoblet.ObjectsEndpoint.removeObjects" : {
+      },
       "goldengoblet.ObjectsEndpoint.getObjects" : {
         "response" : {
           "$ref" : "Objects"
         }
       },
-      "goldengoblet.ObjectsEndpoint.removeObjects" : {
-      },
-      "goldengoblet.ObjectsEndpoint.updateObjects" : {
+      "goldengoblet.ObjectsEndpoint.insertObjects" : {
         "request" : {
           "$ref" : "Objects"
         },
@@ -174,7 +174,7 @@
           "$ref" : "Objects"
         }
       },
-      "goldengoblet.ObjectsEndpoint.insertObjects" : {
+      "goldengoblet.ObjectsEndpoint.updateObjects" : {
         "request" : {
           "$ref" : "Objects"
         },
